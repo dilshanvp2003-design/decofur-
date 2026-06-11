@@ -2,575 +2,644 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Decofur</title>
+<title>Decofur | Premium Modern Furniture</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
-
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
 
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-body{
-    font-family:'Poppins',sans-serif;
-    background:#fff;
+/* --- Design Tokens & Global Styles --- */
+:root {
+    --bg-dark: #0f111a;
+    --bg-card: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --glass-blur: blur(16px);
+    --accent-color: #22f2a2; /* Neon Mint Green Accent */
+    --text-primary: #ffffff;
+    --text-muted: #a0aec0;
 }
 
-.header-top{
-    padding:15px 40px;
-    border-bottom:1px solid #eee;
-}
-.header-top input{
-    border-radius:30px;
-}
-.logo-img{
-    height:30px;
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    overflow-x: hidden;
 }
 
-
-.navbar-custom{
-    padding:14px 40px;
-    border-bottom:1px solid #eee;
-    font-size:14px;
-}
-.navbar-custom a{
-    text-decoration:none;
-    color:#333;
-    margin:0 14px;
-}
-.navbar-custom a:hover{
-    color:#0d6efd;
+/* --- Glassmorphism Shared Utility --- */
+.glass-panel {
+    background: var(--bg-card);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
 }
 
-
-.hero{
-    background:linear-gradient(to right, rgba(0,0,0,.6), rgba(0,0,0,.2)),
-               url("image/chair\ .jpg") center/cover no-repeat;
-    padding:130px 60px;
-    color:#fff;
-}
-.hero h1{
-    font-size:48px;
-    font-weight:700;
-}
-.hero p{
-    font-size:18px;
+/* --- Header & Navigation --- */
+.header-top {
+    padding: 15px 40px;
+    border-bottom: 1px solid var(--glass-border);
+    background: rgba(15, 17, 26, 0.8);
 }
 
-.promo{
-    padding:70px 40px;
-}
-.promo-box{
-    background:#f6f6f6;
-    padding:30px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    height:100%;
-}
-.promo-text h6{
-    font-size:13px;
-    color:#777;
-}
-.promo-text h3{
-    font-weight:600;
-}
-.promo-box img{
-    max-height:180px;
-}
-.right-grid{
-    display:grid;
-    grid-template-rows:1fr 1fr;
-    gap:20px;
-}
-.btn-outline-dark{
-    border-radius:30px;
-    padding:6px 22px;
+.header-top input {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
+    border-radius: 30px;
+    color: white;
+    padding-left: 20px;
+    transition: all 0.3s ease;
 }
 
-
-.section-title{
-    text-align:center;
-    margin:70px 0 30px;
-}
-.section-title h2{
-    font-weight:600;
-}
-.tabs{
-    text-align:center;
-    margin-bottom:40px;
-}
-.tabs span{
-    margin:0 15px;
-    font-size:14px;
-    cursor:pointer;
-    color:#777;
-}
-.tabs .active{
-    color:#000;
-    border-bottom:2px solid #000;
-    padding-bottom:5px;
+.header-top input:focus {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--accent-color);
+    box-shadow: 0 0 10px rgba(34, 242, 162, 0.2);
+    color: white;
 }
 
-.product-card{
-    background:#f7f7f7;
-    padding:25px;
-    position:relative;
-    text-align:center;
-}
-.product-card img{
-    max-height:180px;
-    margin-bottom:15px;
-}
-.badge-custom{
-    position:absolute;
-    top:15px;
-    left:15px;
-    font-size:11px;
-    padding:4px 8px;
-    color:#fff;
-}
-.badge-hot{ background:#ff5722; }
-.badge-sale{ background:#03a9f4; }
-
-.product-name{
-    font-size:14px;
-    color:#777;
-}
-.product-title{
-    font-size:15px;
-    font-weight:500;
-}
-.price{
-    font-weight:600;
-}
-.old-price{
-    text-decoration:line-through;
-    color:#999;
-    font-size:13px;
-    margin-left:5px;
+.header-top input::placeholder {
+    color: #718096;
 }
 
-.feature-promo{
-    padding:70px 40px;
+.logo-img {
+    height: 32px;
+    filter: brightness(0) invert(1); /* Ensures dark logo works on dark mode */
 }
 
-.feature-card{
-    background:#f6f6f6;
-    padding:35px;
-    height:100%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+.header-top i {
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: color 0.3s;
 }
 
-.feature-text h6{
-    font-size:13px;
-    color:#777;
-}
-.feature-text h4{
-    font-weight:600;
-    margin:10px 0;
-}
-.feature-text p{
-    font-size:13px;
-    color:#888;
+.header-top i:hover {
+    color: var(--accent-color);
 }
 
-.feature-card img{
-    max-height:170px;
+.navbar-custom {
+    padding: 14px 40px;
+    border-bottom: 1px solid var(--glass-border);
+    font-size: 14px;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    background: rgba(15, 17, 26, 0.7);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
 }
 
-.feature-btn{
-    font-size:14px;
-    border-bottom:1px solid #000;
-    display:inline-block;
-    margin-top:10px;
+.navbar-custom a {
+    text-decoration: none;
+    color: var(--text-muted);
+    margin: 0 14px;
+    transition: color 0.3s ease;
 }
 
-.category-section{
-    padding:60px 40px;
+.navbar-custom a:hover {
+    color: var(--accent-color);
 }
 
-.category-card{
-    background:#f6f6f6;
-    padding:25px;
-    text-align:center;
-    transition:.3s;
-    height:100%;
+/* --- Hero Section --- */
+.hero {
+    background: linear-gradient(to right, rgba(15,17,26,0.9), rgba(15,17,26,0.4)),
+                url("image/chair .jpg") center/cover no-repeat;
+    padding: 160px 60px;
+    border-bottom: 1px solid var(--glass-border);
 }
 
-.category-card:hover{
-    transform:translateY(-5px);
+.hero h1 {
+    font-size: 56px;
+    font-weight: 700;
+    letter-spacing: -1px;
+    line-height: 1.2;
 }
 
-.category-card img{
-    max-height:120px;
-    margin-bottom:15px;
+.hero p {
+    font-size: 18px;
+    color: var(--text-muted);
+    margin-bottom: 30px;
 }
 
-.category-card h6{
-    font-size:14px;
-    font-weight:500;
-    margin:0;
+.btn-accent {
+    background: var(--accent-color);
+    color: #0f111a;
+    font-weight: 600;
+    border: none;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
-
-.shop-all{
-    text-align:center;
-    margin-top:40px;
+.btn-accent:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(34, 242, 162, 0.4);
+    background: var(--accent-color);
+    color: #0f111a;
 }
 
-.shop-all h3{
-    font-weight:500;
+/* --- Promo & Feature Layouts --- */
+.promo, .feature-promo, .category-section, .wooden-section, .blog-section {
+    padding: 80px 40px;
 }
 
-.shop-all .line{
-    width:40px;
-    height:2px;
-    background:#000;
-    margin:10px auto 0;
+.promo-box, .feature-card, .category-card, .product-card, .product-box, .blog-card {
+    extend: .glass-panel;
+    background: var(--bg-card);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s;
 }
 
-.wooden-section{
-    padding:70px 40px;
+.promo-box:hover, .feature-card:hover, .category-card:hover, .product-card:hover, .product-box:hover, .blog-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(34, 242, 162, 0.3);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
 }
 
-.wooden-title{
-    font-size:24px;
-    font-weight:600;
-    margin-bottom:30px;
+.promo-text h6, .feature-text h6 {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--accent-color);
 }
-.wooden-title{
+
+.promo-text h3 {
+    font-weight: 600;
+    margin: 10px 0;
+}
+
+.promo-box img, .feature-card img {
+    max-height: 160px;
+    object-fit: contain;
+    transition: transform 0.4s;
+}
+
+.promo-box:hover img, .feature-card:hover img {
+    transform: scale(1.05);
+}
+
+.right-grid {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 20px;
+}
+
+.btn-outline-glass {
+    border: 1px solid var(--glass-border);
+    color: white;
+    border-radius: 30px;
+    padding: 6px 22px;
+    transition: all 0.3s;
+}
+
+.btn-outline-glass:hover {
+    background: white;
+    color: #0f111a;
+}
+
+/* --- Section Formatting --- */
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-title h2 {
+    font-weight: 600;
+    letter-spacing: -0.5px;
+}
+
+.tabs {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.tabs span {
+    margin: 0 15px;
+    font-size: 14px;
+    cursor: pointer;
+    color: var(--text-muted);
+    transition: color 0.3s;
+    padding-bottom: 5px;
+}
+
+.tabs .active {
+    color: var(--accent-color);
+    border-bottom: 2px solid var(--accent-color);
+}
+
+/* --- Product UI Display --- */
+.product-card, .product-box {
+    display: block;
+    text-align: center;
     position: relative;
-    font-size:24px;
-    font-weight:600;
-    margin-bottom:30px;
 }
 
-.wooden-title::after{
-    content:"";
-    width:40px;         
-    height:3px;
-    background:#000;
-    position:absolute;
-    left:0;
-    bottom:-8px;
+.product-card img, .product-box img {
+    max-height: 160px;
+    margin: 15px 0;
+    transition: transform 0.4s;
 }
 
-.product-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:25px;
+.product-card:hover img, .product-box:hover img {
+    transform: scale(1.08);
 }
 
-.product-box{
-    background:#f7f7f7;
-    padding:20px;
-    position:relative;
-    text-align:center;
+.badge-custom, .tag {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 20px;
+    color: #0f111a;
+}
+.badge-hot, .tag-hot { background: var(--accent-color); }
+.badge-sale, .tag-sale { background: #03a9f4; color: white; }
+
+.product-name, .product-box h6 {
+    font-size: 12px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
-.product-box img{
-    max-height:150px;
-    margin-bottom:15px;
+.product-title, .product-box p {
+    font-size: 16px;
+    font-weight: 500;
+    margin: 5px 0;
 }
 
-.tag{
-    position:absolute;
-    top:15px;
-    left:15px;
-    font-size:11px;
-    padding:4px 8px;
-    color:#fff;
-}
-.tag-hot{background:#58b4fa;}
-.tag-sale{background:#4ba6e8;}
-
-.product-box h6{
-    font-size:12px;
-    color:#777;
-    margin-bottom:5px;
-}
-.product-box p{
-    font-size:14px;
-    margin:0;
-}
-.price{
-    font-weight:600;
-}
-.old{
-    text-decoration:line-through;
-    font-size:12px;
-    color:#999;
-    margin-left:5px;
+.price {
+    font-weight: 600;
+    color: white;
 }
 
-.deal-box{
-    background:url("image/office chair 4.avif") center/cover no-repeat;
-    padding:50px;
-    height:100%;
-    
-    
+.old-price, .old {
+    text-decoration: line-through;
+    color: #555e70;
+    font-size: 13px;
+    margin-left: 6px;
 }
 
-.deal-box h5{
-    color:#ff5722;
-    font-weight:600;
+/* --- Categories Display --- */
+.category-card {
+    display: block;
+    text-align: center;
+    padding: 20px;
 }
 
-.timer{
-    display:flex;
-    gap:15px;
-    margin:25px 0;
-}
-.timer div{
-    background:#fff;
-    padding:15px 18px;
-    text-align:center;
-    font-weight:600;
-}
-.timer span{
-    display:block;
-    font-size:11px;
-    color:#777;
+.category-card img {
+    max-height: 90px;
+    margin-bottom: 15px;
+    transition: transform 0.3s;
 }
 
-.order-btn{
-    background:#000;
-    color:#fff;
-    padding:10px 30px;
-    border:none;
-}
-.deal-box{
-    background:url("image/office chair 4.avif") center/cover no-repeat ;
-    padding: 50px;
-    height:100%;
-    color:#000;
+.category-card h6 {
+    font-size: 13px;
+    font-weight: 500;
+    color: white;
 }
 
-.deal-box h5{
-    font-weight:600;
-    margin-bottom:20px;
-}
-.blog-section{
-    padding:70px 40px;
+.shop-all {
+    text-align: center;
+    margin-top: 50px;
 }
 
-.blog-card{
-    background:#fff;
+.shop-all h3 {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--text-muted);
 }
 
-.blog-img{
-    position:relative;
-    overflow:hidden;
+.shop-all .line {
+    width: 50px;
+    height: 2px;
+    background: var(--accent-color);
+    margin: 12px auto 0;
 }
 
-.blog-img img{
-    width:100%;
-    height:240px;
-    object-fit:cover;
+/* --- Wooden Special Sections --- */
+.wooden-title {
+    position: relative;
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 40px;
 }
 
-.blog-tag{
-    position:absolute;
-    top:15px;
-    left:15px;
-    background:#111;
-    color:#fff;
-    font-size:11px;
-    padding:5px 10px;
-    text-transform:uppercase;
+.wooden-title::after {
+    content: "";
+    width: 40px;         
+    height: 3px;
+    background: var(--accent-color);
+    position: absolute;
+    left: 0;
+    bottom: -10px;
 }
 
-.blog-content{
-    padding:20px 0;
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
 }
 
-.blog-meta{
-    font-size:12px;
-    color:#999;
-    margin-bottom:8px;
+@media(max-width: 992px) {
+    .product-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
-.blog-title{
-    font-size:18px;
-    font-weight:600;
-    margin-bottom:10px;
+.deal-box {
+    background: linear-gradient(135deg, rgba(15,17,26,0.95) 0%, rgba(15,17,26,0.7) 100%), 
+                url("image/office chair 4.avif") center/cover no-repeat;
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 40px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
 }
 
-.blog-desc{
-    font-size:14px;
-    color:#777;
-    line-height:1.6;
+.deal-box h5 {
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 1.4;
+    margin-bottom: 25px;
 }
 
-.blog-link{
-    display:inline-block;
-    margin-top:15px;
-    font-size:14px;
-    color:#000;
-    border-bottom:1px solid #000;
-    text-decoration:none;
+.order-btn {
+    background: var(--text-primary);
+    color: #0f111a;
+    padding: 10px 30px;
+    border-radius: 30px;
+    font-weight: 600;
+    border: none;
+    transition: all 0.3s;
 }
 
-.newsletter{
-    background:
-      linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),
-      url("image/office\ chair\ 1.avif") center/cover no-repeat;
-    padding:70px 40px;
-    color:#fff;
+.order-btn:hover {
+    background: var(--accent-color);
+    transform: translateY(-2px);
 }
 
-.newsletter h3{
-    font-size:22px;
-    font-weight:600;
-    margin-bottom:15px;
+/* --- Articles & Blogs --- */
+.blog-card {
+    display: block;
+    padding: 0;
+    overflow: hidden;
 }
 
-.newsletter-form{
-    display:flex;
-    max-width:420px;
+.blog-img {
+    position: relative;
 }
 
-.newsletter-form input{
-    border:none;
-    padding:12px 15px;
-    flex:1;
+.blog-img img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
 }
 
-.newsletter-form button{
-    background:#000;
-    color:#fff;
-    border:none;
-    padding:12px 20px;
+.blog-tag {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: var(--accent-color);
+    color: #0f111a;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 20px;
 }
 
-.newsletter p{
-    font-size:14px;
-    margin-top:10px;
-    color:#ddd;
+.blog-content {
+    padding: 25px;
 }
 
-
-.footer{
-    background:#f6f6f6;
-    padding:60px 40px 20px;
-    font-size:14px;
-    color:#666;
+.blog-meta {
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
 }
 
-.footer h6{
-    font-weight:600;
-    margin-bottom:15px;
-    color:#000;
+.blog-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
 }
 
-.footer ul{
-    list-style:none;
-    padding:0;
+.blog-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 10px;
 }
 
-.footer ul li{
-    margin-bottom:8px;
+.blog-link {
+    color: var(--accent-color);
+    font-size: 13px;
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 1px solid transparent;
+    transition: border 0.3s;
 }
 
-.footer ul li a{
-    text-decoration:none;
-    color:#666;
+.blog-link:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
 }
 
-.footer ul li a:hover{
-    color:#000;
+/* --- Newsletter --- */
+.newsletter {
+    background: linear-gradient(rgba(15,17,26,0.85), rgba(15,17,26,0.85)),
+                url("image/office chair 1.avif") center/cover no-repeat;
+    padding: 80px 40px;
+    text-align: center;
+    border-top: 1px solid var(--glass-border);
+    border-bottom: 1px solid var(--glass-border);
 }
 
-.footer-contact p{
-    margin-bottom:6px;
+.newsletter h3 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 25px;
 }
 
-.social-icons i{
-    margin-right:10px;
-    font-size:16px;
-    cursor:pointer;
+.newsletter-form {
+    display: flex;
+    max-width: 460px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
+    padding: 6px;
+    border-radius: 40px;
 }
 
-.app-buttons img{
-    height:38px;
-    margin-right:10px;
+.newsletter-form input {
+    background: transparent;
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    flex: 1;
 }
 
-.footer-bottom{
-    border-top:1px solid #ddd;
-    margin-top:40px;
-    padding-top:20px;
-    text-align:center;
-    font-size:13px;
+.newsletter-form input:focus {
+    outline: none;
 }
 
-.payment-icons img{
-    height:26px;
-    margin:0 6px;
+.newsletter-form button {
+    background: var(--accent-color);
+    color: #0f111a;
+    font-weight: 600;
+    border: none;
+    padding: 0 25px;
+    border-radius: 30px;
+    transition: background 0.3s;
 }
 
+.newsletter-form button:hover {
+    background: #1ce093;
+}
 
+/* --- Footer Area --- */
+.footer {
+    background: #0a0b10;
+    padding: 80px 40px 30px;
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+.footer h6 {
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: white;
+    letter-spacing: 0.5px;
+}
+
+.footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer ul li {
+    margin-bottom: 10px;
+}
+
+.footer ul li a {
+    text-decoration: none;
+    color: var(--text-muted);
+    transition: color 0.3s;
+}
+
+.footer ul li a:hover {
+    color: var(--accent-color);
+}
+
+.social-icons i {
+    margin-right: 15px;
+    font-size: 18px;
+    color: var(--text-muted);
+    transition: color 0.3s;
+}
+
+.social-icons i:hover {
+    color: var(--accent-color);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    margin-top: 50px;
+    padding-top: 30px;
+    text-align: center;
+    font-size: 13px;
+}
+
+/* --- Absolute Controls --- */
+.float-cart {
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    width: 55px;
+    height: 55px;
+    background: var(--accent-color);
+    color: #0f111a;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    box-shadow: 0 10px 25px rgba(34, 242, 162, 0.3);
+    z-index: 9999;
+    transition: transform 0.3s;
+}
+
+.float-cart:hover {
+    transform: scale(1.1);
+    color: #0f111a;
+}
 </style>
 </head>
 
 <body>
 
+<a href="#" class="float-cart">
+   <i class="bi bi-cart-fill"></i>
+</a>
+
 <div class="header-top">
   <div class="row align-items-center">
     <div class="col-4">
-      <input type="text" class="form-control" placeholder="Search products">
+      <input type="text" class="form-control" placeholder="Search premium pieces...">
     </div>
     <div class="col-4 text-center">
       <img src="image/logo.png" class="logo-img" alt="Decofur">
     </div>
-    <div class="col-4 text-end">
-      <i class="bi bi-person fs-5 me-3"></i>
-      <i class="bi bi-heart fs-5 me-3"></i>
-      <i class="bi bi-cart fs-5"></i>
+    <div class="col-4 text-end fs-5">
+      <i class="bi bi-person me-4"></i>
+      <i class="bi bi-heart me-4"></i>
+      <i class="bi bi-cart"></i>
     </div>
   </div>
 </div>
 
-
 <div class="navbar-custom d-flex justify-content-between align-items-center">
-  <div>Browse Categories <i class="bi bi-chevron-down"></i></div>
+  <div style="cursor:pointer; color: var(--accent-color);">Browse Categories <i class="bi bi-chevron-down ms-1"></i></div>
   <div>
-    <a href="#">Home <i class="bi bi-chevron-down"></i></a>
-    <a href="#">Shop <i class="bi bi-chevron-down"></i></a>
-    <a href="#">Products <i class="bi bi-chevron-down"></i></a>
-    <a href="#">Pages <i class="bi bi-chevron-down"></i></a>
+    <a href="#">Home <i class="bi bi-chevron-down ms-1"></i></a>
+    <a href="#">Shop <i class="bi bi-chevron-down ms-1"></i></a>
+    <a href="#">Products <i class="bi bi-chevron-down ms-1"></i></a>
+    <a href="#">Pages <i class="bi bi-chevron-down ms-1"></i></a>
     <a href="#">Blog</a>
-    <a href="#">More Themes <i class="bi bi-chevron-down"></i></a>
   </div>
-  <div>
-    <i class="bi bi-telephone"></i> +123 4567 891
+  <div class="text-muted">
+    <i class="bi bi-telephone me-1"></i> +123 4567 891
   </div>
 </div>
-
 
 <div class="hero">
-  <h1>Stylish Decor<br>Home Furniture</h1>
-  <p>Discover our best furniture collection</p>
-  <button class="btn btn-light rounded-pill px-4">SHOP NOW</button>
+  <h1 class="mb-3">Stylish Decor &<br>Minimalist Furniture</h1>
+  <p>Experience structural artistry curated for modern spaces.</p>
+  <button class="btn btn-accent rounded-pill px-4 py-2">SHOP THE COLLECTION</button>
 </div>
-
 
 <div class="promo">
   <div class="row g-4">
     <div class="col-md-6">
       <div class="promo-box">
         <div class="promo-text">
-          <h6>Save upto 75% off</h6>
+          <h6>Save up to 75% off</h6>
           <h3>Monthly Discount</h3>
-          <button class="btn btn-outline-dark mt-2">Shop Now</button>
+          <button class="btn btn-outline-glass mt-3">Shop Now</button>
         </div>
-        <img src="image/sofa 1.avif">
+        <img src="image/sofa 1.avif" alt="Promo Item">
       </div>
     </div>
 
@@ -578,29 +647,27 @@ body{
       <div class="right-grid">
         <div class="promo-box">
           <div class="promo-text">
-            <h6>Save upto 75% off</h6>
+            <h6>Limited Edition</h6>
             <h3>Summer Sale</h3>
-            <button class="btn btn-outline-dark mt-2">Shop Now</button>
+            <button class="btn btn-outline-glass mt-2">Shop Now</button>
           </div>
-          <img src="image/sofa 2.avif">
+          <img src="image/sofa 2.avif" alt="Promo Item">
         </div>
 
         <div class="promo-box">
           <div class="promo-text">
-            <h6>Save upto 75% off</h6>
-            <h3>Summer Sale</h3>
-            <button class="btn btn-outline-dark mt-2">Shop Now</button>
+            <h6>New Curations</h6>
+            <h3>Chairs Collection</h3>
+            <button class="btn btn-outline-glass mt-2">Shop Now</button>
           </div>
-          <img src="image/sofa 3.avif">
+          <img src="image/sofa 3.avif" alt="Promo Item">
         </div>
       </div>
     </div>
   </div>
 </div>
 
-
 <div class="container">
-
   <div class="section-title">
     <h2>Most Popular Items</h2>
   </div>
@@ -612,521 +679,262 @@ body{
   </div>
 
   <div class="row g-4">
-
     <div class="col-md-3">
       <div class="product-card">
         <span class="badge-custom badge-hot">HOT</span>
-        <img src="image/chair img 4.avif">
-        <div class="product-name">Office Chairs</div>
+        <img src="image/chair img 4.avif" alt="Furniture">
+        <div class="product-name mt-2">Office Chairs</div>
         <div class="product-title">Mid Back Chair</div>
         <div class="price">$123.00</div>
       </div>
     </div>
-
-
     <div class="col-md-3">
       <div class="product-card">
-        <img src="image/table and chair 1.avif">
-        <div class="product-name">Bedroom Furniture</div>
+        <img src="image/table and chair 1.avif" alt="Furniture">
+        <div class="product-name mt-2">Bedroom Furniture</div>
         <div class="product-title">Slipper Chair</div>
         <div class="price">$77.00</div>
       </div>
     </div>
-
     <div class="col-md-3">
       <div class="product-card">
         <span class="badge-custom badge-hot">HOT</span>
-        <img src="image/sofa 1.avif">
-        <div class="product-name">Decor</div>
+        <img src="image/sofa 1.avif" alt="Furniture">
+        <div class="product-name mt-2">Decor</div>
         <div class="product-title">Single Seater</div>
         <div class="price">$289.00</div>
       </div>
     </div>
-
-
     <div class="col-md-3">
       <div class="product-card">
         <span class="badge-custom badge-hot">HOT</span>
-        <img src="image/tea poy 1.jpg">
-        <div class="product-name">Bedroom Furniture</div>
+        <img src="image/tea poy 1.jpg" alt="Furniture">
+        <div class="product-name mt-2">Bedroom Furniture</div>
         <div class="product-title">Sideboard</div>
         <div class="price">$299.00</div>
       </div>
     </div>
-
   </div>
 </div>
 
 <div class="feature-promo">
   <div class="row g-4">
-
-
     <div class="col-md-4">
       <div class="feature-card">
         <div class="feature-text">
           <h6>Save 30% off</h6>
-          <h4>Table Couch Chair</h4>
-          <p>The Harp Gallery Antiques</p>
-          <span class="feature-btn">Shop Now</span>
+          <h4>Table Couch</h4>
+          <span class="blog-link d-inline-block mt-2">Shop Now</span>
         </div>
-        <img src="image/chaur 4.avif">
+        <img src="image/chaur 4.avif" alt="Feature">
       </div>
     </div>
-
     <div class="col-md-4">
       <div class="feature-card">
         <div class="feature-text">
           <h6>Save 30% off</h6>
-          <h4>Eames Lounge Chair</h4>
-          <p>The Harp Gallery Antiques</p>
-          <span class="feature-btn">Shop Now</span>
+          <h4>Lounge Chair</h4>
+          <span class="blog-link d-inline-block mt-2">Shop Now</span>
         </div>
-        <img src="image/group chair ofice.avif">
+        <img src="image/group chair ofice.avif" alt="Feature">
       </div>
     </div>
-
     <div class="col-md-4">
       <div class="feature-card">
         <div class="feature-text">
           <h6>Save 30% off</h6>
-          <h4>Table Chair Wicker</h4>
-          <p>The Harp Gallery Antiques</p>
-          <span class="feature-btn">Shop Now</span>
+          <h4>Wicker Chair</h4>
+          <span class="blog-link d-inline-block mt-2">Shop Now</span>
         </div>
-        <img src="image/tea poy 2.jpg">
+        <img src="image/tea poy 2.jpg" alt="Feature">
       </div>
     </div>
-
-
-    <div class="col-md-6">
-      <div class="feature-card">
-        <div class="feature-text">
-          <h6>BLACK FRIDAY</h6>
-          <h4>Save Up To <br>60% Off</h4>
-          <span class="feature-btn">View Collection</span>
-        </div>
-        <img src="image/office chair 2.webp">
-      </div>
-    </div>
-
-    <div class="col-md-6">
-      <div class="feature-card">
-        <div class="feature-text">
-          <h6>BEST SELLING!</h6>
-          <h4>Living Room <br>Up To 40% Off</h4>
-          <span class="feature-btn">View Collection</span>
-        </div>
-        <img src="image/table and chiar 3.avif">
-      </div>
-    </div>
-
   </div>
 </div>
 
 <div class="category-section">
-
   <div class="row g-4">
-
     <div class="col-md-2 col-sm-4">
       <div class="category-card">
-        <img src="image/sofa 3.avif">
-        <h6>Sofas & Couches</h6>
+        <img src="image/sofa 3.avif" alt="Category">
+        <h6>Sofas</h6>
       </div>
     </div>
-
     <div class="col-md-2 col-sm-4">
       <div class="category-card">
-        <img src="image/office chair 4.avif">
-        <h6>Office Chairs</h6>
+        <img src="image/office chair 4.avif" alt="Category">
+        <h6>Office</h6>
       </div>
     </div>
-
     <div class="col-md-2 col-sm-4">
       <div class="category-card">
-        <img src="image/table and chair 2.avif">
+        <img src="image/table and chair 2.avif" alt="Category">
         <h6>Living Room</h6>
       </div>
     </div>
-
     <div class="col-md-2 col-sm-4">
       <div class="category-card">
-        <img src="image/chaur 4.avif">
+        <img src="image/chaur 4.avif" alt="Category">
         <h6>Home Office</h6>
       </div>
     </div>
-
     <div class="col-md-2 col-sm-4">
       <div class="category-card">
-        <img src="image/table and chair 1.avif">
-        <h6>Dining Furniture</h6>
+        <img src="image/table and chair 1.avif" alt="Category">
+        <h6>Dining</h6>
       </div>
     </div>
-    
     <div class="col-md-2 col-sm-4">
-      <div class ="category-card">
-        <img src="image/group chair ofice.avif">
-        <h6>office chairs</h6>
+      <div class="category-card">
+        <img src="image/group chair ofice.avif" alt="Category">
+        <h6>Premium</h6>
       </div>
     </div>
   </div>
-
 
   <div class="shop-all">
-    <h3>Shop all furniture deals</h3>
+    <h3>Shop all architectural highlights</h3>
     <div class="line"></div>
   </div>
-
 </div>
 
 <div class="wooden-section">
-
   <div class="row g-4">
-
- 
     <div class="col-md-8">
-      <div class="wooden-title">Wooden Furniture </div>
-     
-
-       
+      <div class="wooden-title">Wooden Essentials</div>
       <div class="product-grid">
-
         <div class="product-box">
           <span class="tag tag-sale">SALE</span>
-          <img src="image/office chair 2.webp">
-          <h6>Office Chairs</h6>
+          <img src="image/office chair 2.webp" alt="Wood Product">
+          <h6>Chairs</h6>
           <p>Ansett Solid Wood</p>
           <div class="price">$47.00 <span class="old">$59.00</span></div>
         </div>
-
         <div class="product-box">
-          <span class="tag tag-hot">SALE</span>
-          <img src="image/auntiqye.jpg">
-          <h6>Bedroom Furniture</h6>
+          <span class="tag tag-hot">HOT</span>
+          <img src="image/auntiqye.jpg" alt="Wood Product">
+          <h6>Bedroom</h6>
           <p>Adele Reclaimed Wood</p>
           <div class="price">$299.00</div>
         </div>
-
         <div class="product-box">
           <span class="tag tag-sale">SALE</span>
-          <img src="image/group chair ofice.avif">
-          <h6>Office Chairs</h6>
+          <img src="image/group chair ofice.avif" alt="Wood Product">
+          <h6>Office</h6>
           <p>Astarte Ergonomic</p>
-          <div class="price">$47.00 <span class="old">$113.00</span></div>
+          <div class="price">$47.00</div>
         </div>
-
-        
-       <br>
-        <div class="product-box">
-          <span class="tag tag-hot">SALE</span>
-          <img src="image/tea poy 2.jpg">
-          <h6>Bedroom Furniture</h6>
-          <p>Modern Bed</p>
-          <div class="price">$589.00</div>
-        </div>
-
-        <div class="product-box">
-          <span class="tag tag-sale">SALE</span>
-          <img src="image/royal bulb 2.avif">
-          <h6>Office Chairs</h6>
-          <p>Hanging Lamp</p>
-          <div class="price">$59.00</div>
-        </div>
-
-        <div class="product-box">
-          <span class="tag tag-sale">SALE</span>
-          <img src="image/tea poy 2.jpg">
-          <h6>Bedroom Furniture</h6>
-          <p>Decor Plant</p>
-          <div class="price">$79.00</div>
-        </div>
-
       </div>
     </div>
-
-    
     <div class="col-md-4">
       <div class="deal-box">
-        <h5>Bring Furniture With<br>Decor Tree</h5>
-
-
+        <h5>Bring Space Integration With Minimal Plant Accents</h5>
         <button class="order-btn">Order Now</button>
       </div>
     </div>
   </div>
 </div>
-<div class="wooden-section">
-  <div class="container">
 
-    <h2 class="wooden-title ">Wooden Decor</h2>
-    <div class="row g-4">
-
-    
-      <div class="col-lg-4">
-        <div class="deal-box">
-          <h5>Bring Decor With<br>Furniture Tree</h5>
-
-          
-
-          <button class="order-btn">Order Now</button>
-        </div>
-      </div>
-
-    
-      <div class="col-lg-8">
-        <div class="row g-4">
-
-        
-          <div class="col-md-3">
-            <div class="product-box">
-              <span class="tag tag-hot">HOT</span>
-              <img src="image/chair img 4.avif">
-              <h6>Office Chairs</h6>
-              <p>Miami Sofa Single</p>
-              <div class="price">$69.00</div>
-            </div>
-          </div>
-
-          <div class="col-md-3">
-            <div class="product-box">
-              <span class="tag tag-hot">HOT</span>
-              <img src="image/sofa 1.avif">
-              <h6>Decor</h6>
-              <p>Stargazer Manual</p>
-              <div class="price">$289.00</div>
-            </div>
-          </div>
-
-          <div class="col-md-3">
-            <div class="product-box">
-              <span class="tag tag-hot">HOT</span>
-              <img src="image/tea poy 1.jpg">
-              <h6>Bedroom Furniture</h6>
-              <p>Adele Reclaimed</p>
-              <div class="price">$299.00</div>
-            </div>
-          </div>
-
-          <div class="col-md-3">
-            <div class="product-box">
-              <span class="tag tag-sale">SALE</span>
-              <img src="image/office chair 2.webp">
-              <h6>Office Chairs</h6>
-              <p>Ansett Solid Wood</p>
-              <div class="price">$47.00 <span class="old">$59.00</span></div>
-            </div>
-          </div>
-
-          
-          <div class="col-md-3">
-            <div class="product-box">
-              <span class="tag tag-sale">SALE</span>
-              <img src="image/group chair ofice.avif">
-              <h6>Office Chairs</h6>
-              <p>Ergonomic Chair</p>
-              <div class="price">$47.00</div>
-            </div>
-          </div>
-
-          <div class="col-md-3">
-            <div class="product-box">
-              <span class="tag tag-sale">SALE</span>
-              <img src="image/tea poy 2.jpg">
-              <h6>Bedroom Furniture</h6>
-              <p>Modern Bed</p>
-              <div class="price">$589.00</div>
-            </div>
-          </div>
-
-          <div class="col-md-3">
-            <div class="product-box">
-              <span class="tag tag-sale">SALE</span>
-              <img src="image/royal bulb 2.avif">
-              <h6>Decor</h6>
-              <p>Hanging Lamp</p>
-              <div class="price">$59.00</div>
-            </div>
-          </div>
-
-          <div class="col-md-3">
-            <div class="product-box">
-              <span class="tag tag-hot">HOT</span>
-              <img src="image/sofa 3.avif">
-              <h6>Decor</h6>
-              <p>Decor Plant</p>
-              <div class="price">$79.00</div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-    </div>
-  </div>
-</div>
 <div class="blog-section">
   <div class="container">
-
     <div class="row g-4">
-
-     
       <div class="col-md-4">
         <div class="blog-card">
           <div class="blog-img">
             <span class="blog-tag">Decor</span>
-            <img src="image/chair img 3.avif">
+            <img src="image/chair img 3.avif" alt="Blog post">
           </div>
           <div class="blog-content">
-            <div class="blog-meta">THEMEJR · JULY 5, 2023</div>
-            <div class="blog-title">Easy Fixes For Home Decor</div>
-            <p class="blog-desc">
-              Sed mollis, eros et ultrices tempus, mauris ipsum aliquam libero,
-              non adipiscing dolor urna a orci.
-            </p>
-            <a href="#" class="blog-link">Continue Reading</a>
+            <div class="blog-meta">STUDIO JR · JULY 5, 2026</div>
+            <div class="blog-title">Structural Fixes For Small Living Rooms</div>
+            <p class="blog-desc">Balance minimalism with high efficiency glass elements layout structures effectively.</p>
+            <a href="#" class="blog-link">Read Collection Insights</a>
           </div>
         </div>
       </div>
-
       <div class="col-md-4">
         <div class="blog-card">
           <div class="blog-img">
-            <span class="blog-tag">Furniture</span>
-            <img src="image/chair img 2.avif">
+            <span class="blog-tag">Architecture</span>
+            <img src="image/chair img 2.avif" alt="Blog post">
           </div>
           <div class="blog-content">
-            <div class="blog-meta">THEMEJR · JULY 5, 2023</div>
-            <div class="blog-title">How to Make your Showplace</div>
-            <p class="blog-desc">
-              Sed mollis, eros et ultrices tempus, mauris ipsum aliquam libero,
-              non adipiscing dolor urna a orci.
-            </p>
-            <a href="#" class="blog-link">Continue Reading</a>
+            <div class="blog-meta">STUDIO JR · JULY 5, 2026</div>
+            <div class="blog-title">How To Select Material Contrasts</div>
+            <p class="blog-desc">Coordinating textured surfaces alongside glowing matte frameworks gracefully.</p>
+            <a href="#" class="blog-link">Read Collection Insights</a>
           </div>
         </div>
       </div>
-
-     
       <div class="col-md-4">
         <div class="blog-card">
           <div class="blog-img">
-            <span class="blog-tag">Furniture</span>
-            <img src="image/chair img 1.avif">
+            <span class="blog-tag">Spaces</span>
+            <img src="image/chair img 1.avif" alt="Blog post">
           </div>
           <div class="blog-content">
-            <div class="blog-meta">THEMEJR · JULY 5, 2023</div>
-            <div class="blog-title">How To Choose The Right Sofa</div>
-            <p class="blog-desc">
-              Sed mollis, eros et ultrices tempus, mauris ipsum aliquam libero,
-              non adipiscing dolor urna a orci.
-            </p>
-            <a href="#" class="blog-link">Continue Reading</a>
+            <div class="blog-meta">STUDIO JR · JULY 5, 2026</div>
+            <div class="blog-title">The Geometry Of Lounge Layouts</div>
+            <p class="blog-desc">Map out traffic and comfort zones using structural accent single-seaters.</p>
+            <a href="#" class="blog-link">Read Collection Insights</a>
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </div>
 
 <div class="newsletter">
   <div class="container">
-    <h3>End of Summer! Up to 55% off on all items.</h3>
-
-    <div class="newsletter-form">
-      <input type="email" placeholder="Email Address">
+    <h3>Unlock Exceptional Offers. 20% Off Structural Additions.</h3>
+    <div class="newsletter-form mt-4">
+      <input type="email" placeholder="Your corporate or personal email address">
       <button>SUBSCRIBE</button>
     </div>
-
-    <p>Sign up to our Newsletter and get the discount code!</p>
   </div>
 </div>
 
-
 <div class="footer">
   <div class="container">
-
     <div class="row g-4">
-
-      
-      <div class="col-md-3 footer-contact">
-        <img src="image/logo.png" style="height:28px;margin-bottom:15px;">
-        <p><strong>Need Any Help?</strong></p>
-        <p>(+123) 456 7891</p>
-        <p>Address: 188 Shop Decofur, New York</p>
-        <p>Email: Contact@example.com</p>
-        <p>Mon – Fri / 8:00 AM – 8:00 PM</p>
+      <div class="col-md-3">
+        <h5 class="text-white fw-bold mb-3">Decofur</h5>
+        <p>Premium architectural and functional lifestyle design curation systems.</p>
+        <p class="mt-3"><i class="bi bi-envelope me-2"></i> contact@decofur.design</p>
       </div>
-
-
-      <div class="col-md-2">
+      <div class="col-md-3 offset-md-1">
         <h6>Quick Links</h6>
         <ul>
           <li><a href="#">Products Returns</a></li>
           <li><a href="#">Terms & Conditions</a></li>
-          <li><a href="#">Contact Us</a></li>
           <li><a href="#">Support Center</a></li>
-          <li><a href="#">Privacy Policy</a></li>
-          <li><a href="#">Payment Methods</a></li>
+          <li><a href="#">Privacy Framework</a></li>
         </ul>
       </div>
-
-     
       <div class="col-md-2">
         <h6>Information</h6>
         <ul>
-          <li><a href="#">Products Returns</a></li>
-          <li><a href="#">Terms & Conditions</a></li>
-          <li><a href="#">Contact Us</a></li>
-          <li><a href="#">Support Center</a></li>
-          <li><a href="#">Privacy Policy</a></li>
-          <li><a href="#">Payment Methods</a></li>
+          <li><a href="#">Curations</a></li>
+          <li><a href="#">Showroom Locations</a></li>
+          <li><a href="#">Sustainable Sourcing</a></li>
         </ul>
       </div>
-
-     
-      <div class="col-md-2">
-        <h6>Our Collection</h6>
-        <ul>
-          <li><a href="#">Products Returns</a></li>
-          <li><a href="#">Terms & Conditions</a></li>
-          <li><a href="#">Contact Us</a></li>
-          <li><a href="#">Support Center</a></li>
-          <li><a href="#">Privacy Policy</a></li>
-          <li><a href="#">Payment Methods</a></li>
-        </ul>
-      </div>
-
-    
       <div class="col-md-3">
-        <h6>Download Our App</h6>
-        <p>Download our application and enjoy a 20% discount for a full year.</p>
-
-        <div class="app-buttons mb-3">
-          <img src="image/google play.png">
-          
-        </div>
-
-        <div class="social-icons">
+        <h6>Follow Our Journey</h6>
+        <div class="social-icons mt-2">
           <i class="bi bi-facebook"></i>
-          <i class="bi bi-pinterest"></i>
           <i class="bi bi-instagram"></i>
+          <i class="bi bi-pinterest"></i>
           <i class="bi bi-youtube"></i>
         </div>
       </div>
-
     </div>
-
     <div class="footer-bottom">
-      <div class="payment-icons mb-2">
-        <img src="image/paypal.png">
-        
-      </div>
-      <p>Decofur © 2026 by ThemeJR. All Rights Reserved.</p>
+      <p>Decofur © 2026. Engineered for modern spaces.</p>
     </div>
-
   </div>
 </div>
 
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
