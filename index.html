@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,18 +9,18 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght=300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 /* --- Design Tokens & Global Styles --- */
 :root {
-    --bg-dark: #0f111a;
-    --bg-card: rgba(255, 255, 255, 0.03);
-    --glass-border: rgba(255, 255, 255, 0.08);
+    --bg-dark: #0e0e0c;                     /* Warm rich charcoal black */
+    --bg-card: rgba(255, 255, 255, 0.03);   /* Translucent glass base */
+    --glass-border: rgba(255, 255, 255, 0.09);
     --glass-blur: blur(16px);
-    --accent-color: #22f2a2; /* Neon Mint Green Accent */
+    --accent-color: #ffb800;                /* Vivid Solar Amber / Gold */
     --text-primary: #ffffff;
-    --text-muted: #a0aec0;
+    --text-muted: #a1a1aa;                  /* Neutral muted text */
 }
 
 body {
@@ -42,7 +43,7 @@ body {
 .header-top {
     padding: 15px 40px;
     border-bottom: 1px solid var(--glass-border);
-    background: rgba(15, 17, 26, 0.8);
+    background: rgba(14, 14, 12, 0.8);
 }
 
 .header-top input {
@@ -57,7 +58,7 @@ body {
 .header-top input:focus {
     background: rgba(255, 255, 255, 0.1);
     border-color: var(--accent-color);
-    box-shadow: 0 0 10px rgba(34, 242, 162, 0.2);
+    box-shadow: 0 0 10px rgba(255, 184, 0, 0.2);
     color: white;
 }
 
@@ -67,7 +68,7 @@ body {
 
 .logo-img {
     height: 32px;
-    filter: brightness(0) invert(1); /* Ensures dark logo works on dark mode */
+    filter: brightness(0) invert(1); /* Keeps logo perfectly visible in dark mode */
 }
 
 .header-top i {
@@ -87,7 +88,7 @@ body {
     position: sticky;
     top: 0;
     z-index: 999;
-    background: rgba(15, 17, 26, 0.7);
+    background: rgba(14, 14, 12, 0.7);
     backdrop-filter: var(--glass-blur);
     -webkit-backdrop-filter: var(--glass-blur);
 }
@@ -105,7 +106,7 @@ body {
 
 /* --- Hero Section --- */
 .hero {
-    background: linear-gradient(to right, rgba(15,17,26,0.9), rgba(15,17,26,0.4)),
+    background: linear-gradient(to right, rgba(14,14,12,0.95), rgba(14,14,12,0.4)),
                 url("image/chair .jpg") center/cover no-repeat;
     padding: 160px 60px;
     border-bottom: 1px solid var(--glass-border);
@@ -126,7 +127,7 @@ body {
 
 .btn-accent {
     background: var(--accent-color);
-    color: #0f111a;
+    color: #0e0e0c;
     font-weight: 600;
     border: none;
     transition: transform 0.3s, box-shadow 0.3s;
@@ -134,9 +135,9 @@ body {
 
 .btn-accent:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(34, 242, 162, 0.4);
+    box-shadow: 0 8px 20px rgba(255, 184, 0, 0.4);
     background: var(--accent-color);
-    color: #0f111a;
+    color: #0e0e0c;
 }
 
 /* --- Promo & Feature Layouts --- */
@@ -145,7 +146,6 @@ body {
 }
 
 .promo-box, .feature-card, .category-card, .product-card, .product-box, .blog-card {
-    extend: .glass-panel;
     background: var(--bg-card);
     backdrop-filter: var(--glass-blur);
     -webkit-backdrop-filter: var(--glass-blur);
@@ -156,13 +156,13 @@ body {
     justify-content: space-between;
     align-items: center;
     height: 100%;
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s, border-color 0.3s;
 }
 
 .promo-box:hover, .feature-card:hover, .category-card:hover, .product-card:hover, .product-box:hover, .blog-card:hover {
     transform: translateY(-8px);
-    border-color: rgba(34, 242, 162, 0.3);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    border-color: rgba(255, 184, 0, 0.3);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
 }
 
 .promo-text h6, .feature-text h6 {
@@ -203,7 +203,7 @@ body {
 
 .btn-outline-glass:hover {
     background: white;
-    color: #0f111a;
+    color: #0e0e0c;
 }
 
 /* --- Section Formatting --- */
@@ -261,7 +261,7 @@ body {
     font-weight: 600;
     padding: 4px 10px;
     border-radius: 20px;
-    color: #0f111a;
+    color: #0e0e0c;
 }
 .badge-hot, .tag-hot { background: var(--accent-color); }
 .badge-sale, .tag-sale { background: #03a9f4; color: white; }
@@ -357,7 +357,7 @@ body {
 }
 
 .deal-box {
-    background: linear-gradient(135deg, rgba(15,17,26,0.95) 0%, rgba(15,17,26,0.7) 100%), 
+    background: linear-gradient(135deg, rgba(14,14,12,0.95) 0%, rgba(14,14,12,0.7) 100%), 
                 url("image/office chair 4.avif") center/cover no-repeat;
     border: 1px solid var(--glass-border);
     border-radius: 16px;
@@ -378,7 +378,7 @@ body {
 
 .order-btn {
     background: var(--text-primary);
-    color: #0f111a;
+    color: #0e0e0c;
     padding: 10px 30px;
     border-radius: 30px;
     font-weight: 600;
@@ -413,7 +413,7 @@ body {
     top: 15px;
     left: 15px;
     background: var(--accent-color);
-    color: #0f111a;
+    color: #0e0e0c;
     font-size: 11px;
     font-weight: 600;
     padding: 4px 12px;
@@ -459,7 +459,7 @@ body {
 
 /* --- Newsletter --- */
 .newsletter {
-    background: linear-gradient(rgba(15,17,26,0.85), rgba(15,17,26,0.85)),
+    background: linear-gradient(rgba(14,14,12,0.85), rgba(14,14,12,0.85)),
                 url("image/office chair 1.avif") center/cover no-repeat;
     padding: 80px 40px;
     text-align: center;
@@ -497,7 +497,7 @@ body {
 
 .newsletter-form button {
     background: var(--accent-color);
-    color: #0f111a;
+    color: #0e0e0c;
     font-weight: 600;
     border: none;
     padding: 0 25px;
@@ -506,12 +506,12 @@ body {
 }
 
 .newsletter-form button:hover {
-    background: #1ce093;
+    background: #e6a600;
 }
 
 /* --- Footer Area --- */
 .footer {
-    background: #0a0b10;
+    background: #070706;
     padding: 80px 40px 30px;
     font-size: 14px;
     color: var(--text-muted);
@@ -570,20 +570,20 @@ body {
     width: 55px;
     height: 55px;
     background: var(--accent-color);
-    color: #0f111a;
+    color: #0e0e0c;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 20px;
-    box-shadow: 0 10px 25px rgba(34, 242, 162, 0.3);
+    box-shadow: 0 10px 25px rgba(255, 184, 0, 0.3);
     z-index: 9999;
     transition: transform 0.3s;
 }
 
 .float-cart:hover {
     transform: scale(1.1);
-    color: #0f111a;
+    color: #0e0e0c;
 }
 </style>
 </head>
@@ -938,3 +938,5 @@ body {
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
+```
